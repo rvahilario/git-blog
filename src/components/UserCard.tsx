@@ -84,12 +84,16 @@ const InfoHeader = styled.div`
 
   > a {
     display: flex;
-    text-decoration: none;
+    height: fit-content;
     color: ${({ theme }) => theme.blue};
+    text-decoration: none;
     font-size: 0.75rem;
     font-weight: 700;
     justify-content: center;
     align-items: stretch;
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.blue};
+    }
     > svg {
       margin-left: 0.5rem;
     }
