@@ -25,7 +25,7 @@ export const USER_MOCK = {
   location: 'Rio de Janeiro, RJ, Brazil',
   email: null,
   hireable: true,
-  bio: null,
+  bio: '🚀 Passionate Frontend Engineer. Crafting interfaces with a commitment to continuous learning and staying updated on the latest advancements.',
   twitter_username: null,
   public_repos: 22,
   public_gists: 0,

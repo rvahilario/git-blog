@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { UserCard } from '../components/UserCard'
 
 export function Home() {
   return (
     <Container>
-      <h2>HOME PAGE</h2>
+      <UserCard />
     </Container>
   )
 }
@@ -11,4 +12,5 @@ export function Home() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
