@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { UserCard } from '../components/UserCard'
-import { useState } from 'react'
+import { RepoCard } from '../components/RepoCard'
+import { REPOS_MOCK } from '../mocks'
 
 export function Home() {
   const [search, setSearch] = useState('')
@@ -24,6 +26,12 @@ export function Home() {
           value={search}
         ></StyledInput>
       </SearchDiv>
+
+      <Grid>
+        {REPOS_MOCK?.items
+          .filter((repo) => repo.state === 'open' && repo.body !== null) // TODO: move filter by state to API call
+          .map((repo: RepoType) => <RepoCard key={repo.id} post={repo} />)}
+      </Grid>
     </Container>
   )
 }
@@ -85,4 +93,12 @@ const StyledInput = styled.input`
     outline: none;
     border: 1px solid ${({ theme }) => theme.blue};
   }
+`
+
+const Grid = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 `
