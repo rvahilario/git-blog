@@ -19,4 +19,11 @@ export const api = {
     )
     return data
   },
+
+  getPostByNumber: async (postNumber: string): Promise<IssueType> => {
+    const { data } = await axios.get(
+      `${GITHUB_API_URL}/repos/${BLOG_CONFIG.github_user}/${BLOG_CONFIG.repo_name}/issues/${postNumber}`,
+    )
+    return data
+  },
 }

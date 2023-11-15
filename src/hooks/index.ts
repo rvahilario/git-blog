@@ -18,3 +18,11 @@ export function usePosts() {
     staleTime: DEFAULT_STALE_TIME,
   })
 }
+
+export function usePostByNumber(postNumber: string) {
+  return useQuery({
+    queryKey: ['post', postNumber.toString()],
+    queryFn: () => api.getPostByNumber(postNumber),
+    staleTime: DEFAULT_STALE_TIME,
+  })
+}
