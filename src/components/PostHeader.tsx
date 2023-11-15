@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 import { formatDistanceToNow } from 'date-fns'
 import {
   ArrowSquareOut,
@@ -26,12 +27,12 @@ export function PostHeader({
   return (
     <Container>
       <Header>
-        <a href={'/'} rel="noreferrer">
+        <NavLink to={'/'}>
           <CaretLeft weight="bold" /> BACK
-        </a>
-        <a target="_blank" href={url} rel="noreferrer">
+        </NavLink>
+        <NavLink to={url} target="_blank">
           VIEW ON GITHUB <ArrowSquareOut weight="bold" />
-        </a>
+        </NavLink>
       </Header>
       <InfoDiv>
         <h2>{title}</h2>

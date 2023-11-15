@@ -14,18 +14,19 @@ export function Home() {
   return (
     <Container>
       <UserCard />
-      <SearchDiv>
-        <StyledLabel>
+      <SearchForm>
+        <StyledLabel htmlFor="search">
           <h2>Posts</h2>
           <span>{`${'6'} posts`}</span>
         </StyledLabel>
         <StyledInput
+          id="search"
           type="text"
           placeholder={'Search content'}
           onChange={handleSearch}
           value={search}
         ></StyledInput>
-      </SearchDiv>
+      </SearchForm>
 
       <Grid>
         {REPOS_MOCK?.items
@@ -42,7 +43,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-const SearchDiv = styled.div`
+const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 import {
   ArrowSquareOut,
   Buildings,
@@ -19,9 +20,9 @@ export function UserCard() {
       <InfoDiv>
         <InfoHeader>
           <h2>{userData.name}</h2>
-          <a target="_blank" href={userData.html_url} rel="noreferrer">
+          <NavLink to={userData.html_url} target="_blank">
             GITHUB <ArrowSquareOut weight="bold" />
-          </a>
+          </NavLink>
         </InfoHeader>
         <UserBio>{userData.bio}</UserBio>
         <InfoFooter>
