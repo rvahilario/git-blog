@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { format } from 'date-fns'
+import { NavLink } from 'react-router-dom'
 
 type RepoCardProps = {
   post: IssueType
@@ -7,15 +8,21 @@ type RepoCardProps = {
 
 export function RepoCard({ post }: RepoCardProps) {
   return (
-    <Container>
-      <Header>
-        <h2>{post.title}</h2>
-        <span>{format(new Date(post.created_at), 'dd/MM/yy')}</span>
-      </Header>
-      <PostBody>{post.body}</PostBody>
-    </Container>
+    <StyledNavLink to={`/post/${post.number}`}>
+      <Container>
+        <Header>
+          <h2>{post.title}</h2>
+          <span>{format(new Date(post.created_at), 'dd/MM/yy')}</span>
+        </Header>
+        <PostBody>{post.body}</PostBody>
+      </Container>
+    </StyledNavLink>
   )
 }
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+`
 
 const Container = styled.div`
   display: flex;
