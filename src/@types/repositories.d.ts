@@ -43,7 +43,7 @@ type Reaction = {
   eyes: number
 }
 
-type RepositoriesType = {
+type RepositoryType = {
   total_count: number
   incomplete_results: boolean
   items: IssueType[]

@@ -35,7 +35,7 @@ export const USER_MOCK: UserType = {
   updated_at: '2023-11-10T01:34:26Z',
 }
 
-export const REPOS_MOCK: RepositoriesType = {
+export const REPOS_MOCK: RepositoryType = {
   total_count: 14,
   incomplete_results: false,
   items: [
@@ -1119,7 +1119,7 @@ export const ISSUE_MOCK: IssueType = {
   state_reason: null,
 }
 
-export const SEARCH_ISSUES_MOCK: RepositoriesType = {
+export const SEARCH_ISSUES_MOCK: RepositoryType = {
   total_count: 8,
   incomplete_results: false,
   items: [

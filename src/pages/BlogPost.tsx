@@ -51,5 +51,6 @@ const StyledMarkdown = styled(Markdown)`
   }
   img {
     max-width: 100%;
+    border-radius: 10px;
   }
 `
