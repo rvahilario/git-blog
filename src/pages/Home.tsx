@@ -2,10 +2,13 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { UserCard } from '../components/UserCard'
 import { RepoCard } from '../components/RepoCard'
-import { REPOS_MOCK } from '../mocks'
+import { usePosts } from '../hooks'
 
 export function Home() {
+  const { status, data, error } = usePosts()
   const [search, setSearch] = useState('')
+
+  const posts = data?.items || []
 
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
@@ -29,9 +32,15 @@ export function Home() {
       </SearchForm>
 
       <Grid>
-        {REPOS_MOCK?.items
-          .filter((repo) => repo.state === 'open' && repo.body !== null) // TODO: move filter by state to API call
-          .map((repo: IssueType) => <RepoCard key={repo.id} post={repo} />)}
+        {status === 'pending' ? (
+          'Loading...'
+        ) : status === 'error' ? (
+          <span>Error: {error.message}</span>
+        ) : (
+          posts
+            .filter((post) => post.body !== null)
+            .map((post) => <RepoCard key={post.id} post={post} />)
+        )}
       </Grid>
     </Container>
   )
