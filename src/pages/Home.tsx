@@ -30,7 +30,7 @@ export function Home() {
       <Grid>
         {REPOS_MOCK?.items
           .filter((repo) => repo.state === 'open' && repo.body !== null) // TODO: move filter by state to API call
-          .map((repo: RepoType) => <RepoCard key={repo.id} post={repo} />)}
+          .map((repo: IssueType) => <RepoCard key={repo.id} post={repo} />)}
       </Grid>
     </Container>
   )
@@ -40,7 +40,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 864px;
 `
 
 const SearchDiv = styled.div`

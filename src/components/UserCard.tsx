@@ -20,7 +20,7 @@ export function UserCard() {
         <InfoHeader>
           <h2>{userData.name}</h2>
           <a target="_blank" href={userData.html_url} rel="noreferrer">
-            GITHUB <ArrowSquareOut />
+            GITHUB <ArrowSquareOut weight="bold" />
           </a>
         </InfoHeader>
         <UserBio>{userData.bio}</UserBio>
@@ -90,7 +90,9 @@ const InfoHeader = styled.div`
     font-size: 0.75rem;
     font-weight: 700;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+    line-height: 1;
+    border-bottom: 1px solid transparent;
     &:hover {
       border-bottom: 1px solid ${({ theme }) => theme.blue};
     }

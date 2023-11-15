@@ -1,4 +1,4 @@
-type RepoType = {
+type IssueType = {
   url: string
   repository_url: string
   labels_url: string
@@ -9,7 +9,7 @@ type RepoType = {
   node_id: string
   number: number
   title: string
-  user: User
+  user: UserType
   // labels: any[] // Pode ser mais específico dependendo da estrutura real dos labels
   state: string
   locked: boolean
@@ -46,5 +46,5 @@ type Reaction = {
 type RepositoriesType = {
   total_count: number
   incomplete_results: boolean
-  items: RepoType[]
+  items: IssueType[]
 }

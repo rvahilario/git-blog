@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 
 type RepoCardProps = {
-  post: RepoType
+  post: IssueType
 }
 
 export function RepoCard({ post }: RepoCardProps) {
