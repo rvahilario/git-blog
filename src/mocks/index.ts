@@ -1,4 +1,4 @@
-export const USER_MOCK = {
+export const USER_MOCK: UserType = {
   login: 'rvahilario',
   id: 54445268,
   node_id: 'MDQ6VXNlcjU0NDQ1MjY4',
@@ -35,7 +35,7 @@ export const USER_MOCK = {
   updated_at: '2023-11-10T01:34:26Z',
 }
 
-export const REPOS_MOCK = {
+export const REPOS_MOCK: RepositoriesType = {
   total_count: 14,
   incomplete_results: false,
   items: [
@@ -1047,7 +1047,7 @@ export const REPOS_MOCK = {
   ],
 }
 
-export const ITEM_ISSUE_MOCK = {
+export const ITEM_ISSUE_MOCK: RepoType = {
   url: 'https://api.github.com/repos/rocketseat-education/reactjs-github-blog-challenge/issues/1',
   repository_url:
     'https://api.github.com/repos/rocketseat-education/reactjs-github-blog-challenge',
@@ -1119,7 +1119,7 @@ export const ITEM_ISSUE_MOCK = {
   state_reason: null,
 }
 
-export const SEARCH_ISSUES_MOCK = {
+export const SEARCH_ISSUES_MOCK: RepositoriesType = {
   total_count: 8,
   incomplete_results: false,
   items: [
