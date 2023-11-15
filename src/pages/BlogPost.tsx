@@ -22,7 +22,6 @@ export function BlogPost() {
         <span>Error: {error.message}</span>
       ) : (
         <>
-          {console.log('data.body', data.body)}
           <PostHeader
             title={data.title}
             url={data.html_url}
@@ -36,7 +35,7 @@ export function BlogPost() {
               remarkPlugins={[remarkGfm, remarkParse, remarkBreaks]}
               rehypePlugins={[rehypeRaw, rehypeFormat]}
             >
-              {data.body.toString()}
+              {data.body}
             </StyledMarkdown>
           </Content>
         </>
