@@ -6,42 +6,47 @@ import {
   GithubLogo,
   Users,
 } from '@phosphor-icons/react'
-import { USER_MOCK } from '../mocks'
+import { useUser } from '../hooks'
 
 export function UserCard() {
-  const userData: UserType = USER_MOCK // TODO: fetch data from API
+  const { status, data, error } = useUser()
 
   return (
     <Container>
-      <Image
-        src={userData.avatar_url}
-        alt={`Profile image of ${userData.name}`}
-      />
-      <InfoDiv>
-        <InfoHeader>
-          <h2>{userData.name}</h2>
-          <NavLink to={userData.html_url} target="_blank">
-            GITHUB <ArrowSquareOut weight="bold" />
-          </NavLink>
-        </InfoHeader>
-        <UserBio>{userData.bio}</UserBio>
-        <InfoFooter>
-          <p>
-            <GithubLogo weight="fill" />
-            {userData.login}
-          </p>
-          {userData.company && (
-            <p>
-              <Buildings weight="fill" />
-              {userData.company}
-            </p>
-          )}
-          <p>
-            <Users weight="fill" />
-            {`${userData.followers} followers`}
-          </p>
-        </InfoFooter>
-      </InfoDiv>
+      {status === 'pending' ? (
+        'Loading...'
+      ) : status === 'error' ? (
+        <span>Error: {error.message}</span>
+      ) : (
+        <>
+          <Image src={data.avatar_url} alt={`Profile image of ${data.name}`} />
+          <InfoDiv>
+            <InfoHeader>
+              <h2>{data.name}</h2>
+              <NavLink to={data.html_url || ''} target="_blank">
+                GITHUB <ArrowSquareOut weight="bold" />
+              </NavLink>
+            </InfoHeader>
+            <UserBio>{data.bio}</UserBio>
+            <InfoFooter>
+              <p>
+                <GithubLogo weight="fill" />
+                {data.login}
+              </p>
+              {data.company && (
+                <p>
+                  <Buildings weight="fill" />
+                  {data.company}
+                </p>
+              )}
+              <p>
+                <Users weight="fill" />
+                {`${data.followers} followers`}
+              </p>
+            </InfoFooter>
+          </InfoDiv>
+        </>
+      )}
     </Container>
   )
 }
